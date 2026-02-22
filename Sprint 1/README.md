@@ -120,6 +120,27 @@ python train.py --data-dir dataset --epochs 5 --save-path model.pth
 python predict.py --model model.pth --csv dataset/labels.csv --out predictions.csv
 ```
 
+## GUI Application (Flet)
+
+For an easier workflow, use the interactive **Flet GUI app**:
+
+```powershell
+# Activate virtual environment
+.\.venv\Scripts\Activate.ps1
+
+# Install Flet dependency
+python -m pip install flet
+
+# Run the GUI
+python app.py
+```
+
+**Features:**
+- **Train Tab:** Configure epochs, batch size, learning rate, and train with progress logs
+- **Predict Tab:** Select model & image, classify with instant visual feedback
+- **File Pickers:** Browse for model files and images
+- **Real-time Logs:** See training progress and prediction results
+
 ## Example Workflow
 
 ```powershell

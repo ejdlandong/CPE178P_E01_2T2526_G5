@@ -29,11 +29,31 @@ def train_main(argv=None):
     parser.add_argument('--save-path', default='model.pth')
     args = parser.parse_args(argv)
 
-    csv_path = args.csv
-    images_dir = os.path.join(args.data_dir, 'images')
+    # Resolve paths relative to the project root (script_dir)
+    csv_path = Path(args.csv)
+    if not csv_path.is_absolute():
+        csv_path = script_dir / csv_path
+
+    images_dir = Path(args.data_dir)
+    if not images_dir.is_absolute():
+        images_dir = script_dir / images_dir
+    images_dir = images_dir / 'images' if images_dir.name != 'images' else images_dir
+
+    # Fallback: if the provided CSV doesn't exist, try labels_small.csv
+    if not csv_path.exists():
+        fallback = script_dir / 'dataset' / 'labels_small.csv'
+        if fallback.exists():
+            print(f"Warning: CSV not found at {csv_path}. Using fallback {fallback} for smoke testing.")
+            csv_path = fallback
+        else:
+            checked = [str(csv_path), str(script_dir / 'dataset' / 'labels.csv'), str(fallback)]
+            raise FileNotFoundError(
+                f"Labels CSV not found. Checked paths:\n  " + "\n  ".join(checked) +
+                "\n\nCreate a CSV at one of these paths (format: filename,label) or pass --csv <path> to train.py."
+            )
 
     # dataset
-    dataset = ImageCSVLoader(csv_path, images_dir, require_labels=True)
+    dataset = ImageCSVLoader(str(csv_path), str(images_dir), require_labels=True)
     n = len(dataset)
     if n == 0:
         raise RuntimeError('Dataset appears empty (no rows in CSV)')
