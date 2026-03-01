@@ -86,5 +86,3 @@ This document outlines the step-by-step process for both the **website frontend*
 
 ## ✅ Summary
 This project demonstrates both a static website and a cross-platform Python application. The step-by-step structure above should help you understand how each part is built and how to run or extend the code.
-
-Feel free to modify and integrate your AI model whenever you're ready!
