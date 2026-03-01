@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Damage AI - Detection & Analysis System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🚗</span>
+                <span class="logo-text">Car Damage AI</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#detector" class="nav-link">Detector</a></li>
+                <li><a href="#dataset" class="nav-link">Dataset</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Advanced Car Damage Detection</h1>
+            <p>AI-Powered Damage Assessment & Analysis System</p>
+            <button class="cta-button" onclick="scrollToSection('detector')">Try Detector Now</button>
+        </div>
+        <div class="hero-image">
+            <div class="car-illustration">🚗</div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="section-header">
+            <h2>Why Choose Us?</h2>
+            <p>Cutting-edge AI technology for accurate damage detection</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>High Accuracy</h3>
+                <p>Advanced machine learning models trained on thousands of images for precise damage detection</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Fast Processing</h3>
+                <p>Get results in seconds with our optimized neural networks</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Detailed Analysis</h3>
+                <p>Comprehensive reports including damage location, severity, and repair estimates</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure & Private</h3>
+                <p>Your images are processed securely with end-to-end encryption</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Mobile Friendly</h3>
+                <p>Works seamlessly on desktop, tablet, and mobile devices</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>AI Powered</h3>
+                <p>State-of-the-art deep learning technology for intelligent damage recognition</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detector Section -->
+    <section id="detector" class="detector">
+        <div class="section-header">
+            <h2>Car Damage Detector</h2>
+            <p>Upload an image to analyze damage</p>
+        </div>
+
+        <div class="detector-container">
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📸</div>
+                <h3>Drop your image here</h3>
+                <p>or</p>
+                <input type="file" id="imageInput" class="file-input" accept="image/*">
+                <label for="imageInput" class="upload-label">Browse Files</label>
+            </div>
+
+            <div class="preview-section" id="previewSection" style="display: none;">
+                <div class="preview-container">
+                    <img id="previewImage" src="" alt="Preview" class="preview-image">
+                    <button class="remove-btn" onclick="resetDetector()">×</button>
+                </div>
+
+                <div class="analysis-panel">
+                    <h3>Analysis Results</h3>
+                    <div class="results-placeholder" id="resultsPlaceholder">
+                        <div class="loading-spinner"></div>
+                        <p>Analyzing image...</p>
+                    </div>
+                    <div class="results-content" id="resultsContent" style="display: none;">
+                        <div class="result-item">
+                            <span class="result-label">Damage Type:</span>
+                            <span class="result-value" id="damageType">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Severity:</span>
+                            <span class="result-value severity-high" id="severity">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Confidence:</span>
+                            <span class="result-value" id="confidence">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">Affected Area:</span>
+                            <span class="result-value" id="area">-</span>
+                        </div>
+                        <div class="result-item full-width">
+                            <span class="result-label">Recommendations:</span>
+                            <p class="recommendations" id="recommendations">-</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dataset Section -->
+    <section id="dataset" class="dataset">
+        <div class="section-header">
+            <h2>Our Dataset</h2>
+            <p>Thousands of car images for training and testing</p>
+        </div>
+
+        <div class="dataset-stats">
+            <div class="stat-card">
+                <div class="stat-number">5,000+</div>
+                <div class="stat-label">Total Images</div>
+                <div class="stat-icon">🖼️</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Damage Categories</div>
+                <div class="stat-icon">📂</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Accuracy Rate</div>
+                <div class="stat-icon">📈</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Available</div>
+                <div class="stat-icon">⏰</div>
+            </div>
+        </div>
+
+        <div class="dataset-categories">
+            <h3>Damage Categories</h3>
+            <div class="categories-grid">
+                <div class="category-item">Dent</div>
+                <div class="category-item">Scratch</div>
+                <div class="category-item">Crack</div>
+                <div class="category-item">Broken Glass</div>
+                <div class="category-item">Paint Damage</div>
+                <div class="category-item">Collision Damage</div>
+                <div class="category-item">Rust</div>
+                <div class="category-item">Missing Part</div>
+                <div class="category-item">Tire Damage</div>
+                <div class="category-item">Alignment Issue</div>
+                <div class="category-item">Water Damage</div>
+                <div class="category-item">No Damage</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="section-header">
+            <h2>Get in Touch</h2>
+            <p>Questions? We'd love to hear from you</p>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="info-item">
+                    <div class="info-icon">📧</div>
+                    <div class="info-text">
+                        <h4>Email</h4>
+                        <p>contact@cardamageai.com</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">📱</div>
+                    <div class="info-text">
+                        <h4>Phone</h4>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div class="info-text">
+                        <h4>Location</h4>
+                        <p>Manila, Philippines</p>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Car Damage AI. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+                <a href="#sitemap">Sitemap</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
