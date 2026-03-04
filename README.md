@@ -75,14 +75,5 @@ This document outlines the step-by-step process for both the **website frontend*
 
 ---
 
-## 🛠 Tips & Customization
-
-- Change colors at top of `app_flet.py` or `:root` section of `style.css`.
-- Replace simulation logic with real ML model by editing `simulate_analysis()`.
-- Add new categories or features in their respective arrays.
-- Package the Flet app as an executable using `flet pack ...`.
-
----
-
 ## ✅ Summary
 This project demonstrates both a static website and a cross-platform Python application. The step-by-step structure above should help you understand how each part is built and how to run or extend the code.
